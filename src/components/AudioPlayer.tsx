@@ -118,7 +118,7 @@ const AudioPlayer: React.FC = () => {
       <button
         onClick={toggleMute}
         onMouseDown={handleUserInteraction} // Trigger user interaction for autoplay
-        className="audio-control fixed bottom-6 right-6 z-50 bg-black/60 backdrop-blur-sm border border-white/20 rounded-full p-3 text-white hover:bg-black/80 transition-all duration-300 hover:scale-110 shadow-lg"
+        className="audio-control fixed bottom-6 left-6 z-50 bg-black/60 backdrop-blur-sm border border-white/20 rounded-full p-3 text-white hover:bg-black/80 transition-all duration-300 hover:scale-110 shadow-lg"
         aria-label={isMuted ? 'Unmute audio' : 'Mute audio'}
       >
         {isMuted ? (
@@ -128,17 +128,6 @@ const AudioPlayer: React.FC = () => {
         )}
       </button>
 
-      {/* Audio indicator (optional - shows current track) */}
-      {isPlaying && (
-        <div className="fixed bottom-6 left-6 z-50 bg-black/60 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-2 text-white text-sm max-w-xs">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-            <span className="truncate">
-              Track {currentTrackIndex + 1} of {randomizedPlaylist.length}
-            </span>
-          </div>
-        </div>
-      )}
     </>
   );
 };
