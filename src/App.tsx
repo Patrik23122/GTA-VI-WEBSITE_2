@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 import BackgroundSlideshow from './components/BackgroundSlideshow';
+import AudioPlayer from './components/AudioPlayer';
 
 function App() {
   const [timeLeft, setTimeLeft] = useState({
@@ -212,6 +213,9 @@ function App() {
           </div>
         </div>
       </div>
+      
+      {/* Audio Player */}
+      <AudioPlayer />
     </BackgroundSlideshow>
   );
 }
