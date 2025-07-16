@@ -145,11 +145,19 @@ function App() {
           </div>
 
           {/* Subtitle */}
-          <h2 className="text-xl md:text-2xl lg:text-3xl gta-subtitle leading-tight mb-8" style={{ 
+          <h2 className="text-2xl md:text-3xl lg:text-4xl gta-subtitle leading-tight mb-4" style={{ 
             color: '#FFFFFF', 
             textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.9)'
           }}>
-            The Premium GTA VI Collectible You've Been Waiting For
+            Exclusive GTA VI Countdown Clock
+          </h2>
+
+          {/* Subheading */}
+          <h3 className="text-lg md:text-xl lg:text-2xl gta-body leading-tight mb-8" style={{ 
+            color: '#FFFFFF', 
+            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.9)'
+          }}>
+            The Premium Collector's Item for True GTA Fans
           </h2>
 
           {/* Action Buttons */}
@@ -164,7 +172,7 @@ function App() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email for priority access"
+                    placeholder="Enter your email to reserve priority access"
                     required
                     className="retro-input w-full px-6 py-4 bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-white/70 focus:border-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-400/30 transition-all duration-300 text-center font-medium"
                   />
@@ -180,8 +188,7 @@ function App() {
                     <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                   ) : (
                     <>
-                      Secure Your Countdown Clock Now
-                      <ArrowRight className="w-5 h-5" />
+                      Claim Your Clock Now →
                     </>
                   )}
                 </button>
@@ -201,13 +208,18 @@ function App() {
           {/* Bottom Text */}
           <div className="text-center max-w-3xl mx-auto">
             <p className="text-base md:text-lg text-white gta-body enhanced-text-visibility">
-              Be among the first 300 pre-orders to secure your exclusive collector's countdown clock. 
-              Limited availability – only <span className="font-bold text-yellow-300">{timeLeft.days} days</span> before the GTA VI release!
+              Be among the first 300 fans to secure your exclusive GTA VI collector's countdown clock. Reserve your piece of gaming history now!
             </p>
+            
+            {/* Scarcity Reminder */}
+            <p className="text-lg md:text-xl text-yellow-300 font-bold gta-subtitle enhanced-text-visibility mt-4 mb-6">
+              Limited availability – just {timeLeft.days} days until GTA VI launches!
+            </p>
+            
             {/* Trust Indicators */}
             <div className="text-center">
               <p className="text-sm text-white gta-secondary enhanced-text-visibility">
-                Premium collectible • Limited edition • Worldwide shipping • 30-day guarantee
+                Premium Quality • Limited Edition • Worldwide Shipping • Satisfaction Guaranteed
               </p>
             </div>
           </div>
