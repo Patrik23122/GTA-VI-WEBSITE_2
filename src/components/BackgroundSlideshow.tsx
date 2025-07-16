@@ -26,6 +26,13 @@ const BackgroundSlideshow: React.FC<BackgroundSlideshowProps> = ({ children }) =
 
   // Mouse move handler for parallax effect
   useEffect(() => {
+    // Check if device is mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    
+    if (isMobile) {
+      return; // Skip parallax on mobile devices
+    }
+
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
       const { innerWidth, innerHeight } = window;
@@ -40,6 +47,10 @@ const BackgroundSlideshow: React.FC<BackgroundSlideshowProps> = ({ children }) =
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+
+  // Check if device is mobile for rendering
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+
   return (
     <div className="slideshow-container">
       {/* Background Images */}
@@ -51,7 +62,9 @@ const BackgroundSlideshow: React.FC<BackgroundSlideshowProps> = ({ children }) =
           }`}
           style={{
             backgroundImage: `url(${image})`,
-            transform: `translate(${mousePosition.x * 20}px, ${mousePosition.y * 15}px) scale(1.1)`,
+            transform: isMobile 
+              ? 'none' 
+              : `translate(${mousePosition.x * 20}px, ${mousePosition.y * 15}px) scale(1.1)`,
           }}
         />
       ))}
