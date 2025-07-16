@@ -34,8 +34,8 @@ const AudioPlayer: React.FC = () => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    // Set initial volume to 20%
-    audio.volume = 0.2;
+    // Set initial volume to 10%
+    audio.volume = 0.1;
 
     // Auto-play the first track
     const playAudio = async () => {
@@ -84,7 +84,7 @@ const AudioPlayer: React.FC = () => {
     if (!audio) return;
 
     if (isMuted) {
-      audio.volume = 0.2;
+      audio.volume = 0.1;
       setIsMuted(false);
     } else {
       audio.volume = 0;
