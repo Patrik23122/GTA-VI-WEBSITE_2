@@ -118,7 +118,7 @@ const AudioPlayer: React.FC = () => {
       <button
         onClick={toggleMute}
         onMouseDown={handleUserInteraction} // Trigger user interaction for autoplay
-        className="fixed bottom-6 right-6 z-50 bg-black/60 backdrop-blur-sm border border-white/20 rounded-full p-3 text-white hover:bg-black/80 transition-all duration-300 hover:scale-110 shadow-lg"
+        className="audio-control fixed bottom-6 right-6 z-50 bg-black/60 backdrop-blur-sm border border-white/20 rounded-full p-3 text-white hover:bg-black/80 transition-all duration-300 hover:scale-110 shadow-lg"
         aria-label={isMuted ? 'Unmute audio' : 'Mute audio'}
       >
         {isMuted ? (

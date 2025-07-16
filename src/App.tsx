@@ -109,7 +109,7 @@ function App() {
         {/* Main Content */}
         <div className="text-center max-w-5xl mx-auto space-y-8">
           {/* Main Headline - Replace with Logo */}
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center logo-container">
             <img 
               src="/TRANSPARENT_LOGO/GTA-6-Logo-PNG-from-Grand-Theft-Auto-VI-Transparent.png"
               alt="Grand Theft Auto VI Logo"
@@ -127,7 +127,7 @@ function App() {
                 { value: timeLeft.seconds, label: 'SEC', vhs: vhsStates.seconds, vhsClass: 'vhs-seconds' }
               ].map((unit, index) => (
                 <div key={index} className="flex flex-col items-center">
-                  <div className={`bg-black/60 backdrop-blur-sm rounded-lg p-4 md:p-6 mb-3 border border-red-500/40 shadow-2xl ${unit.vhs ? unit.vhsClass : ''}`}>
+                  <div className={`countdown-digit bg-black/60 backdrop-blur-sm rounded-lg p-4 md:p-6 mb-3 border border-red-500/40 shadow-2xl ${unit.vhs ? unit.vhsClass : ''}`}>
                     <div className="text-2xl md:text-4xl lg:text-5xl font-pixel leading-none tracking-wider transform transition-all duration-300 hover:scale-105 digit-glow pixel-perfect" style={{ 
                       color: '#FF0000',
                       imageRendering: 'pixelated',
@@ -166,7 +166,7 @@ function App() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email for priority access"
                     required
-                    className="w-full px-6 py-4 bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-white/70 focus:border-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-400/30 transition-all duration-300 text-center font-medium"
+                    className="retro-input w-full px-6 py-4 bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-white/70 focus:border-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-400/30 transition-all duration-300 text-center font-medium"
                   />
                 </form>
                 
@@ -174,7 +174,7 @@ function App() {
                 <button
                   onClick={handleSecureSubmit}
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white gta-cta py-4 px-6 rounded-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 button-glow enhanced-text-visibility heartbeat-animation"
+                  className="retro-button w-full bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white gta-cta py-4 px-6 rounded-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 button-glow enhanced-text-visibility heartbeat-animation"
                 >
                   {isSubmitting ? (
                     <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
