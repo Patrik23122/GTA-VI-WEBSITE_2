@@ -158,7 +158,7 @@ function App() {
             textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.9)'
           }}>
             The Premium Collector's Item for True GTA Fans
-          </h2>
+          </h3>
 
           {/* Action Buttons */}
           <div className="space-y-4 max-w-md mx-auto">
