@@ -6,6 +6,7 @@ interface BackgroundSlideshowProps {
 
 const BackgroundSlideshow: React.FC<BackgroundSlideshowProps> = ({ children }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
   // Array of background images
   const backgroundImages = [
@@ -23,6 +24,22 @@ const BackgroundSlideshow: React.FC<BackgroundSlideshowProps> = ({ children }) =
     return () => clearInterval(interval);
   }, [backgroundImages.length]);
 
+  // Mouse move handler for parallax effect
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const { clientX, clientY } = e;
+      const { innerWidth, innerHeight } = window;
+      
+      // Calculate mouse position as percentage from center
+      const x = (clientX - innerWidth / 2) / innerWidth;
+      const y = (clientY - innerHeight / 2) / innerHeight;
+      
+      setMousePosition({ x, y });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
   return (
     <div className="slideshow-container">
       {/* Background Images */}
@@ -34,6 +51,7 @@ const BackgroundSlideshow: React.FC<BackgroundSlideshowProps> = ({ children }) =
           }`}
           style={{
             backgroundImage: `url(${image})`,
+            transform: `translate(${mousePosition.x * 20}px, ${mousePosition.y * 15}px) scale(1.1)`,
           }}
         />
       ))}
